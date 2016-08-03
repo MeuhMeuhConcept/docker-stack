@@ -2,17 +2,17 @@ FROM php:7-fpm-alpine
 
 MAINTAINER jn.germon@gmail.com
 
-RUN echo 'http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories && \
-    apk update && \
+RUN apk update && \
     apk add \
-    php7-curl \
-    php7-gd \
-    php7-intl \
-    php7-mcrypt \
-    php7-memcached \
-    php7-pdo_mysql \
-    php7-pdo_pgsql \
     bash && \
+    NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
+    docker-php-ext-install -j${NPROC} \
+    curl \
+    gd \
+    intl \
+    mcrypt \
+    pdo_mysql \
+    pdo_pgsql && \
     rm -rf /var/cache/apk/*
 
 # Sanctify (the opposite of daemonize :D ) php-fpm
