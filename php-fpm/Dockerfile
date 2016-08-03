@@ -2,8 +2,16 @@ FROM php:7-fpm-alpine
 
 MAINTAINER jn.germon@gmail.com
 
-RUN apk update && \
+RUN echo 'http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories && \
+    apk update && \
     apk add \
+    php7-curl \
+    php7-gd \
+    php7-intl \
+    php7-mcrypt \
+    php7-memcached \
+    php7-pdo_mysql \
+    php7-pdo_pgsql \
     bash && \
     rm -rf /var/cache/apk/*
 
