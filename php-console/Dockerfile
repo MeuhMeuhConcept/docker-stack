@@ -1,4 +1,4 @@
-FROM meuhmeuhconcept/docker-stack-php-fpm
+FROM meuhmeuhconcept/php-fpm
 
 MAINTAINER jn.germon@gmail.com
 
