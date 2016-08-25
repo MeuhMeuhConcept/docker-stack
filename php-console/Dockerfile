@@ -16,6 +16,10 @@ RUN apk update && \
 RUN curl --silent --show-error https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
 
+# Install php-cs-fixer
+RUN curl --silent --show-error -L https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v1.12.0/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
+RUN chmod a+x /usr/local/bin/php-cs-fixer
+
 ENV CONTAINER_SHELL /bin/bash
 
 VOLUME /home/developer
