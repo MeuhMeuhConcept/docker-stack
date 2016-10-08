@@ -4,7 +4,13 @@ MAINTAINER jn.germon@gmail.com
 
 RUN apk update && \
     apk add \
-    bash && \
+    bash \
+    freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev && \
+    docker-php-ext-configure gd \
+      --with-gd \
+      --with-freetype-dir=/usr/include/ \
+      --with-png-dir=/usr/include/ \
+      --with-jpeg-dir=/usr/include/ && \
     NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
     docker-php-ext-install -j${NPROC} \
     curl \
@@ -13,6 +19,7 @@ RUN apk update && \
     mcrypt \
     pdo_mysql \
     pdo_pgsql && \
+    apk del --no-cache freetype-dev libpng-dev libjpeg-turbo-dev && \
     rm -rf /var/cache/apk/*
 
 # Sanctify (the opposite of daemonize :D ) php-fpm
