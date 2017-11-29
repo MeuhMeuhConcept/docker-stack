@@ -1,4 +1,4 @@
 VERSION=latest
 
 build:
-	docker build -t meuhmeuhconcept/docker-stack-php-fpm:$(VERSION) .
+	docker build -t meuhmeuhconcept/php-fpm:$(VERSION) .

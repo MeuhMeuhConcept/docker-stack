@@ -1,4 +1,4 @@
 VERSION=latest
 
 build:
-	docker build -t meuhmeuhconcept/docker-stack-php-console:$(VERSION) .
+	docker build -t meuhmeuhconcept/php-console:$(VERSION) .
