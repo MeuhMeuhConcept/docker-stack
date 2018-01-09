@@ -9,6 +9,7 @@ RUN apk update && \
     make \
     git \
     nodejs \
+    nodejs-npm \
     zsh && \
     rm -rf /var/cache/apk/*
 
