@@ -10,6 +10,7 @@ RUN apk update && \
     git \
     nodejs \
     nodejs-npm \
+    yarn \
     zsh && \
     rm -rf /var/cache/apk/*
 
