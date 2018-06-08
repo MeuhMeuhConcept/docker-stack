@@ -34,6 +34,11 @@ RUN apk update && \
         php7-xmlreader \
         php7-xmlwriter \
         php7-zip \
+        glib \
+        libxrender \
+        libssl1.0 \
+        fontconfig \
+        ttf-freefont \
     bash \
     && rm -rf /var/cache/apk/*
 
