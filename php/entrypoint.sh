@@ -11,6 +11,10 @@ if [ "$USERNAME" -a ! "$(id "$USERNAME")" ]; then
     adduser -u "$UNIX_UID" -h /home/developer "$USERNAME" -s "$CONTAINER_SHELL" -D
 
     chown "$USERNAME:$USERNAME" /home/developer
+
+    # Replace www-data by $USERNAME
+    sed --in-place --expression="s/www-data/$USERNAME/g" /etc/php7/php-fpm.conf
+
 fi
 
 exec "$@"

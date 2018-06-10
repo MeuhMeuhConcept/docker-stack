@@ -39,11 +39,31 @@ RUN apk update && \
         libssl1.0 \
         fontconfig \
         ttf-freefont \
-    bash \
+        bash \
+        openssh \
+        curl \
+        make \
+        git \
+        nodejs \
+        nodejs-npm \
+        yarn \
+        zsh \
     && rm -rf /var/cache/apk/*
 
 ADD php-fpm.conf /etc/php7/php-fpm.conf
 ADD php-fpm.ini /etc/php7/conf.d/50-setting.ini
+
+# Install composer
+RUN curl --silent --show-error https://getcomposer.org/installer | php && \
+    mv composer.phar /usr/local/bin/composer
+
+# Install php-cs-fixer
+RUN curl --silent --show-error -L https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v1.12.0/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
+RUN chmod a+x /usr/local/bin/php-cs-fixer
+
+ENV CONTAINER_SHELL /bin/bash
+
+VOLUME /home/developer
 
 COPY entrypoint.sh /
 
