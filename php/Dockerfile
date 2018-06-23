@@ -48,6 +48,7 @@ RUN apk update && \
         nodejs-npm \
         yarn \
         zsh \
+        hunspell \
     && rm -rf /var/cache/apk/*
 
 ADD php-fpm.conf /etc/php7/php-fpm.conf
