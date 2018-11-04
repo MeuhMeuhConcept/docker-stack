@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.8
 
 MAINTAINER jn.germon@gmail.com
 
@@ -45,7 +45,6 @@ RUN apk update && \
         make \
         git \
         nodejs \
-        nodejs-npm \
         yarn \
         zsh \
         hunspell \
