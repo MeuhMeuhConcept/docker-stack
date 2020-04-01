@@ -48,6 +48,7 @@ RUN apk update && \
         yarn \
         zsh \
         hunspell \
+        wkhtmltopdf \
     && rm -rf /var/cache/apk/*
 
 ADD php-fpm.conf /etc/php7/php-fpm.conf
