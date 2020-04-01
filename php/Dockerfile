@@ -36,7 +36,7 @@ RUN apk update && \
         php7-zip \
         glib \
         libxrender \
-        #libssl1.0 \
+        libssl1.1 \
         fontconfig \
         ttf-freefont \
         bash \
