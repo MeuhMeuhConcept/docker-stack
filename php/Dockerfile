@@ -49,6 +49,7 @@ RUN apk update && \
         zsh \
         hunspell \
         wkhtmltopdf \
+        poppler-utils \
     && rm -rf /var/cache/apk/*
 
 ADD php-fpm.conf /etc/php7/php-fpm.conf
