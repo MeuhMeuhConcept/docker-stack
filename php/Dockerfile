@@ -56,7 +56,7 @@ ADD php-fpm.conf /etc/php7/php-fpm.conf
 ADD php-fpm.ini /etc/php7/conf.d/50-setting.ini
 
 # Install composer
-RUN curl --silent --show-error https://getcomposer.org/installer | php && \
+RUN curl --silent --show-error https://getcomposer.org/installer | php -- --2.2 && \
     mv composer.phar /usr/local/bin/composer
 
 ENV CONTAINER_SHELL /bin/bash
